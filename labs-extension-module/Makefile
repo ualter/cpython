@@ -21,9 +21,10 @@ all: build
 build: 
 	@$(CC) -c $(SOURCE) $(HEADERS); \
 	cp $(SOURCE) ../Modules; \
-	echo " ---> Next Steps"
-	echo "1) Add spam spammodule.o to file Modules/Setup.local (if not there)"; \
-	echo "2) Run make in the toplevel directory"
+	printf " ---> Next Steps\n"; \
+	printf " 1) Add a line with \"spam spammodule.o\" to file Modules/Setup.local\n"; \
+	printf "    If not found this file, run ./configure command and then look for it out of VSCode\n"; \
+	printf " 2) Run make in the toplevel directory\n"
 
 .PHONY: clean
 clean: 

@@ -1,3 +1,10 @@
+// Creating a Simple Extension Module
+// It will make your module a permanent part of the Python interpreter (binary) - compiling and linking it with the Python system
+// Follow the instructions printed by makefile, it will also create object file
+// After install this spam module, it should be possible
+//   >>> import spam
+//   >>> status = spam.system("ls -l")
+
 #define PY_SSIZE_T_CLEAN
 // #include <Python.h>
 #include "Python.h"
