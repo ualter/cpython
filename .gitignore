@@ -164,3 +164,4 @@ Doc/data/python*.abi
 /mysandbox
 labs-mysandbox/mysandbox
 labs-extension-module/testImportModule
+labs-embedding-python-function-call/call
