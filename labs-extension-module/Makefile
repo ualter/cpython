@@ -29,3 +29,10 @@ build:
 .PHONY: clean
 clean: 
 	@rm $(TARGET)
+
+.PHONY: test
+test-import-module: 
+	$(CC) testImportModule.c $(HEADERS) $(LINKFORSHARED) -o testImportModule $(OBJS) $(LIBS) $(MODLIBS)
+	# Remember!
+	# export PYTHONHOME=/home/ualter/developer/repos/github/cpython
+    # export PYTHONPATH=/home/ualter/developer/repos/github/cpython/Lib
