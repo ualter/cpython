@@ -17,6 +17,15 @@ CFLAGS += -DDEBUG -D_REENTRANT
 .PHONY: all
 all: build
 
+.PHONY: show-python-path-configuration
+show-python-path-configuration:
+	@pythonScrDirHome="$$PWD"; \
+	pythonScrDirHome=$$(echo "$${pythonScrDirHome%/*}") ; \
+	export PYTHONHOME=$$pythonScrDirHome ; \
+	export PYTHONPATH=$$pythonScrDirHome/Lib ; \
+	echo $$PYTHONHOME; \
+	echo $$PYTHONPATH; \
+
 .PHONY: build
 build: 
 	@$(CC) -c $(SOURCE) $(HEADERS); \
@@ -30,8 +39,15 @@ build:
 clean: 
 	@rm $(TARGET)
 
-.PHONY: test
-test-import-module: 
+
+test-import-module:
+	@pythonScrDirHome="$$PWD"; \
+	pythonScrDirHome=$$(echo "$${pythonScrDirHome%/*}") ; \
+	export PYTHONHOME=$$pythonScrDirHome ; \
+	export PYTHONPATH=$$pythonScrDirHome/Lib ; \
+	$(MAKE) -s test-import-module-with-python-configured; \
+
+test-import-module-with-python-configured:
 	$(CC) testImportModule.c $(HEADERS) $(LINKFORSHARED) -o testImportModule $(OBJS) $(LIBS) $(MODLIBS)
 	# Remember!
 	# export PYTHONHOME=/home/ualter/developer/repos/github/cpython
