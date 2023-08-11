@@ -201,6 +201,10 @@
 
    Token value for ``":="``.
 
+.. data:: ALMOSTEQUAL
+
+   Token value for ``"~="``.
+
 .. data:: EXCLAMATION
 
    Token value for ``"!"``.
